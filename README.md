@@ -37,4 +37,4 @@
 
 ## Screenshots
 
-![App Screenshot](URL_Screenshot)
+![Demo GIF](https://github.com/willyrahman/ApkCekCuacaSederhana/blob/main/img/Demo%20tugas6%20ApkCekCuacaSederhana.gif)
