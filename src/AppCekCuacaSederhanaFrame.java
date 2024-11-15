@@ -286,16 +286,16 @@ public class AppCekCuacaSederhanaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-        int selectedRow = jTable2.getSelectedRow();
-    if (selectedRow == -1) {
-        JOptionPane.showMessageDialog(this, "Pilih baris yang ingin dihapus.");
-    } else {
-        // Remove the selected row from the table model
-        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-        model.removeRow(selectedRow);
-        JOptionPane.showMessageDialog(this, "Baris berhasil dihapus.");
-    }
+            // TODO add your handling code here:
+            int selectedRow = jTable2.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Pilih baris yang ingin dihapus.");
+        } else {
+            // Remove the selected row from the table model
+            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+            model.removeRow(selectedRow);
+            JOptionPane.showMessageDialog(this, "Baris berhasil dihapus.");
+        }
     }//GEN-LAST:event_jButton11ActionPerformed
  private void getWeather(String city) {
         try {
