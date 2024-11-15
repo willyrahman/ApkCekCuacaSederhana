@@ -38,6 +38,12 @@ public class AppCekCuacaSederhanaFrame extends javax.swing.JFrame {
     private ArrayList<String> favoriteCities = new ArrayList<>();
     public AppCekCuacaSederhanaFrame() {
         initComponents();
+        
+           jTable2.setModel(new DefaultTableModel(
+    new Object[][] {},
+    new String[] {"Tanggal", "Kota", "Suhu", "Kondisi", "Kelembapan"}
+    ));
+
          jComboBox2.addItemListener(new ItemListener() {
         public void itemStateChanged(ItemEvent evt) {
         if (evt.getStateChange() == ItemEvent.SELECTED) {
@@ -118,8 +124,6 @@ public class AppCekCuacaSederhanaFrame extends javax.swing.JFrame {
         });
 
         jLabel7.setText("Kota Favorit");
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel8.setText("Gambar");
 
@@ -262,12 +266,13 @@ public class AppCekCuacaSederhanaFrame extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-        loadWeatherData();
+        saveWeatherData();
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-          saveWeatherData();
+       
+             loadWeatherData();
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -304,10 +309,14 @@ public class AppCekCuacaSederhanaFrame extends javax.swing.JFrame {
             String description = weather.getString("description");
             String iconCode = weather.getString("icon");  // Dapatkan kode ikon cuaca
             double temp = main.getDouble("temp") - 273.15; // Konversi ke Celsius
+            int humidity = main.getInt("humidity"); // Kelembapan
+            String date = java.time.LocalDate.now().toString(); // Tanggal saat ini
+
 
             // Menampilkan data cuaca di tabel
             DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-            model.addRow(new Object[]{city, description, String.format("%.2f°C", temp)});
+            model.addRow(new Object[]{date, city, String.format("%.2f°C", temp), description, humidity + "%"});
+
             
             // Menampilkan ikon cuaca
             setWeatherIcon(iconCode);
