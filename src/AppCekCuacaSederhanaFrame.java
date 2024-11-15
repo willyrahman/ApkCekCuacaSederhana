@@ -115,6 +115,11 @@ public class AppCekCuacaSederhanaFrame extends javax.swing.JFrame {
         });
 
         jButton11.setText("Hapus");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         jButton12.setText("Keluar");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -279,6 +284,19 @@ public class AppCekCuacaSederhanaFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
          System.exit(0);
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = jTable2.getSelectedRow();
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(this, "Pilih baris yang ingin dihapus.");
+    } else {
+        // Remove the selected row from the table model
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        model.removeRow(selectedRow);
+        JOptionPane.showMessageDialog(this, "Baris berhasil dihapus.");
+    }
+    }//GEN-LAST:event_jButton11ActionPerformed
  private void getWeather(String city) {
         try {
             String apiUrl = String.format("http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s", city, apiKey);
